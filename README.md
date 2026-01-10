@@ -1,14 +1,86 @@
-# HTML-opener-ios
-RU: Открывашка для штмл приложений на айфон
-Туториал: 1. открыть ссылку https://html-opener-ios-nyawkz.netlify.app
-2. нажать поделиться -> добавить на экран "домой"
-3. ничего не меняете и нажимаете на синий текст
-4. готово! теперь на вашем экране будет это приложение, стоит зайти 1 раз - дальше можно будет заходить без интернета
-(P.S. Если кнопка вставить не работает, просто очищаете нажимаете на окно и вставляете вручную)
+# **HTML-opener-ios**
 
-EN: html apps opener with PWA for iphone
-Tutorial: 1. open the link https://html-opener-ios-nyawkz.netlify.app
-2. click share -> add to home screen
-3. don't change anything and click on the blue text
-4. done! now you have this app on your screen, and once you open it, you can open it without an internet connection
-(P.S. If the paste button doesn't work, so just clear the window and paste manually)
+**RU:** Открывашка для штмл приложений на айфон  
+**EN:** HTML apps opener with PWA for iPhone
+
+---
+
+## **RU: 📱 Русская версия**
+
+### **🎯 Что это?**
+PWA-приложение для iPhone, которое открывает HTML игры и приложения прямо на телефоне. Работает без интернета после первого запуска!
+
+### **🚀 Быстрый старт (1 минута)**
+1. **Открой ссылку:** [https://html-opener-ios-nyawkz.netlify.app](https://html-opener-ios-nyawkz.netlify.app)
+2. **Нажми "Поделиться"** (квадрат со стрелкой вверх)
+3. **Выбери "На экран "Домой""**
+4. **Ничего не меняй**, нажми "Добавить" (синий текст)
+5. **Готово!** 🎉
+
+### **✨ Возможности**
+- 📝 Редактирование HTML/CSS/JS
+- 👁 Предпросмотр в реальном времени
+- 📱 Полноценное PWA-приложение
+- 🌙 Работает без интернета
+- 🚀 Быстрый запуск с главного экрана
+
+### **⚠️ Важно знать**
+- **Кнопка "Вставить"** может не работать в Safari
+- **Решение:** Очистите поле → нажмите на него → вставьте вручную (долгое нажатие → "Вставить")
+- После первого запуска интернет не нужен
+- Сохраняет ваш последний код
+
+---
+
+## **EN: 📱 English version**
+
+### **🎯 What is this?**
+PWA application for iPhone that opens HTML games and apps directly on your phone. Works offline after first launch!
+
+### **🚀 Quick start (1 minute)**
+1. **Open link:** [https://html-opener-ios-nyawkz.netlify.app](https://html-opener-ios-nyawkz.netlify.app)
+2. **Tap "Share"** (square with up arrow)
+3. **Select "Add to Home Screen"**
+4. **Don't change anything**, tap "Add" (blue text)
+5. **Done!** 🎉
+
+### **✨ Features**
+- 📝 HTML/CSS/JS editing
+- 👁 Real-time preview
+- 📱 Full PWA application
+- 🌙 Works offline
+- 🚀 Quick launch from home screen
+
+### **⚠️ Important notes**
+- **"Paste" button** may not work in Safari
+- **Solution:** Clear field → tap on it → paste manually (long press → "Paste")
+- Internet not needed after first launch
+- Saves your last code
+
+---
+
+## **📱 Screenshots / Скриншоты**
+```
+[iPhone Home Screen]    [App Interface]    [Preview Mode]
+```
+
+## **🛠 Технологии / Technologies**
+- PWA (Progressive Web App)
+- Service Workers
+- LocalStorage
+- HTML5/CSS3/JavaScript
+
+## **⭐ Советы / Tips**
+- Добавьте на главный экран для быстрого доступа / Add to home screen for quick access
+- Работает в самолётном режиме / Works in airplane mode
+- Бесплатно и без рекламы / Free and no ads
+
+**👨‍💻 Автор / Author:** @nyawkz  
+**🔗 Ссылка / Link:** [https://html-opener-ios-nyawkz.netlify.app](https://html-opener-ios-nyawkz.netlify.app)
+
+---
+
+**RU:** Проблемы? Пишите в Issues!  
+**EN:** Issues? Write in Issues!
+
+⭐ **Star this repo if useful!** / **Поставьте звезду если полезно!** ⭐
