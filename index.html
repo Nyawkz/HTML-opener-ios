@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HTML Превьюер PWA</title>
+    <title>HTML opener</title>
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <link rel="manifest" href="manifest.json">
@@ -111,7 +111,7 @@
 </head>
 <body>
     <div class="container">
-        <h1>🛠️ HTML Превьюер</h1>
+        <h1>🛠️ HTML opener</h1>
         <textarea id="html-code" placeholder="<!DOCTYPE html>
 <html>
 <head>
@@ -125,18 +125,18 @@
         
         <div class="buttons">
             <button class="preview-btn" id="previewBtn">
-                👁️ Открыть превью
+                👁️ open HTML
             </button>
             <button class="clear-btn" id="clearBtn">
-                🧹 Очистить
+                🧹 clear
             </button>
             <button class="paste-btn" id="pasteBtn">
-                📋 Вставить код
+                📋 paste
             </button>
         </div>
         
         <div class="status-bar" id="statusBar">
-            Готово к работе
+            ready
         </div>
     </div>
 
@@ -149,11 +149,11 @@
 
         // Стартовый пример кода
         htmlCode.value = `<!DOCTYPE html>
-<html lang="ru">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Пример страницы</title>
+    <title>sample page</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -176,8 +176,8 @@
 </head>
 <body>
     <div class="card">
-        <h1>🚀 Ваш HTML работает!</h1>
-        <p>Измените код и нажмите "Открыть превью" снова.</p>
+        <h1>🚀 HTML opener is working! </h1>
+        <p>change code and try to tap on "open HTML" again</p>
     </div>
 </body>
 </html>`;
@@ -185,7 +185,7 @@
         // 1. КНОПКА "ПРЕВЬЮ" - открывает новое окно
         previewBtn.addEventListener('click', () => {
             if (!htmlCode.value.trim()) {
-                statusBar.textContent = "Введите код!";
+                statusBar.textContent = "code cannot be empty!";
                 statusBar.style.background = "#ffebee";
                 statusBar.style.color = "#c62828";
                 return;
@@ -221,14 +221,14 @@
                     newWindow.document.write(fullscreenHTML);
                     newWindow.document.close();
                     
-                    statusBar.textContent = "Превью открыт в новом окне";
+                    statusBar.textContent = "HTML opened in other window";
                     statusBar.style.background = "#e8f5e9";
                     statusBar.style.color = "#2e7d32";
                 } else {
-                    throw new Error('Блокировщик всплывающих окон');
+                    throw new Error('you are blocking pop-up windows.');
                 }
             } catch (e) {
-                statusBar.textContent = "Разрешите всплывающие окна в настройках браузера";
+                statusBar.textContent = "Allow pop-ups in your browser settings";
                 statusBar.style.background = "#ffebee";
                 statusBar.style.color = "#c62828";
             }
@@ -237,7 +237,7 @@
         // 2. КНОПКА "ОЧИСТИТЬ"
         clearBtn.addEventListener('click', () => {
             htmlCode.value = "";
-            statusBar.textContent = "Поле очищено";
+            statusBar.textContent = "сleared";
             statusBar.style.background = "#fff3e0";
             statusBar.style.color = "#ef6c00";
         });
@@ -247,11 +247,11 @@
             try {
                 const text = await navigator.clipboard.readText();
                 htmlCode.value += text;
-                statusBar.textContent = "Код вставлен из буфера";
+                statusBar.textContent = "pasted";
                 statusBar.style.background = "#e3f2fd";
                 statusBar.style.color = "#1567c0";
             } catch (e) {
-                statusBar.textContent = "Ошибка: Вставьте вручную (долгое нажатие → Вставить)";
+                statusBar.textContent = "error: paste manually";
                 statusBar.style.background = "#ffebee";
                 statusBar.style.color = "#c62828";
             }
@@ -261,7 +261,7 @@
         if ('serviceWorker' in navigator) {
             window.addEventListener('load', () => {
                 navigator.serviceWorker.register('sw.js')
-                    .catch(err => console.log('SW регистрация не удалась:', err));
+                    .catch(err => console.log('SW register not sucess:', err));
             });
         }
     </script>
