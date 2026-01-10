@@ -58,12 +58,6 @@ PWA application for iPhone that opens HTML games and apps directly on your phone
 - Saves your last code
 
 ---
-
-## **📱 Screenshots / Скриншоты**
-```
-[iPhone Home Screen]    [App Interface]    [Preview Mode]
-```
-
 ## **🛠 Технологии / Technologies**
 - PWA (Progressive Web App)
 - Service Workers
