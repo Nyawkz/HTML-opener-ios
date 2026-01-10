@@ -1,4 +1,4 @@
-# HTML-opener
+# HTML-opener-ios
 RU: Открывашка для штмл приложений на айфон
 Туториал: 1. открыть ссылку https://html-opener-ios-nyawkz.netlify.app
 2. нажать поделиться -> добавить на экран "домой"
