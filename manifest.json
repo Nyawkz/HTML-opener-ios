@@ -1,0 +1,8 @@
+{
+  "name": "HTML Превьюер",
+  "short_name": "HTML Preview",
+  "start_url": ".",
+  "display": "standalone",
+  "background_color": "#667eea",
+  "theme_color": "#764ba2"
+}
