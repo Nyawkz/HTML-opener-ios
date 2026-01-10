@@ -1,2 +1,3 @@
 # HTML-opener
-Открывашка для штмл приложений на айфон
+RU: Открывашка для штмл приложений на айфон
+EN: html apps opener with PWA for iphone
