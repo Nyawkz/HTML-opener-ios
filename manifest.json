@@ -1,0 +1,16 @@
+{
+  "name": "HTML Previewer PWA",
+  "short_name": "HTML Previewer",
+  "description": "HTML editor with PWA creation",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#667eea",
+  "theme_color": "#764ba2",
+  "icons": [
+    {
+      "src": "icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    }
+  ]
+}
