@@ -1,5 +1,5 @@
-const CACHE_NAME = 'html-preview-v1';
-const urlsToCache = ['/', '/index.html', '/manifest.json'];
+const CACHE_NAME = 'html-previewer-v1';
+const urlsToCache = ['/', '/index.html'];
 
 self.addEventListener('install', event => {
   event.waitUntil(
