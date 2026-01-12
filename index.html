@@ -384,58 +384,112 @@
             }
         });
 
-        // =================== SHARE MENU OPTIONS ===================
-        
-        // 1. ADD TO HOME SCREEN
-        addToHomeBtn.addEventListener('click', function() {
-            shareMenu.style.display = 'none';
-            
-            // Create a standalone PWA from the HTML code
-            createPWAFromHTML();
-        });
+// =================== SHARE MENU OPTIONS ===================
 
-        // 2. SHARE CODE
-        shareCodeBtn.addEventListener('click', async function() {
-            shareMenu.style.display = 'none';
+// 1. ADD TO HOME SCREEN (без ZIP!)
+addToHomeBtn.addEventListener('click', function() {
+    shareMenu.style.display = 'none';
+    
+    // Создаём чистый HTML с PWA метатегами
+    const pwaPage = `
+        <!DOCTYPE html>
+        <html>
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <meta name="apple-mobile-web-app-capable" content="yes">
+            <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+            <title>My HTML App</title>
+            <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>📱</text></svg>">
+            <style>
+                body {
+                    font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+                    margin: 0;
+                    padding: 20px;
+                    background: white;
+                }
+            </style>
+        </head>
+        <body>
+            ${htmlCode.value}
             
-            try {
-                await navigator.clipboard.writeText(htmlCode.value);
-                statusBar.textContent = "HTML code copied to clipboard";
-                statusBar.style.background = "#e8f5e9";
-                statusBar.style.color = "#2e7d32";
-            } catch (e) {
-                // Fallback for iOS
-                const textArea = document.createElement('textarea');
-                textArea.value = htmlCode.value;
-                document.body.appendChild(textArea);
-                textArea.select();
-                document.execCommand('copy');
-                document.body.removeChild(textArea);
+            <!-- Подсказка для iOS -->
+            <div style="position: fixed; bottom: 0; left: 0; right: 0; background: #f0f0f0; padding: 15px; text-align: center; border-top: 1px solid #ddd; display: none;" id="iosHint">
+                <p style="margin: 0; color: #333;">
+                    <strong>To install:</strong> Tap <span style="color: #007aff;">Share</span> → 
+                    <span style="color: #007aff;">Add to Home Screen</span>
+                </p>
+            </div>
+            
+            <script>
+                // Показываем подсказку на iOS
+                if (/iPad|iPhone|iPod/.test(navigator.userAgent)) {
+                    setTimeout(() => {
+                        document.getElementById('iosHint').style.display = 'block';
+                    }, 1000);
+                }
                 
-                statusBar.textContent = "Code copied!";
-                statusBar.style.background = "#e8f5e9";
-                statusBar.style.color = "#2e7d32";
-            }
-        });
+                // Автоскрытие подсказки
+                setTimeout(() => {
+                    document.getElementById('iosHint').style.display = 'none';
+                }, 10000);
+            <\/script>
+        </body>
+        </html>
+    `;
+    
+    // Открываем в новой вкладке
+    const newTab = window.open();
+    newTab.document.write(pwaPage);
+    newTab.document.close();
+    
+    statusBar.textContent = "Opened in new tab → Use Safari's Share → Add to Home Screen";
+    statusBar.style.background = "#e8f5e9";
+    statusBar.style.color = "#2e7d32";
+});
 
-        // 3. SAVE AS HTML FILE
-        saveFileBtn.addEventListener('click', function() {
-            shareMenu.style.display = 'none';
-            
-            const blob = new Blob([htmlCode.value], { type: 'text/html' });
-            const url = URL.createObjectURL(blob);
-            const a = document.createElement('a');
-            a.href = url;
-            a.download = 'my-page.html';
-            document.body.appendChild(a);
-            a.click();
-            document.body.removeChild(a);
-            URL.revokeObjectURL(url);
-            
-            statusBar.textContent = "HTML file downloaded";
-            statusBar.style.background = "#e3f2fd";
-            statusBar.style.color = "#1567c0";
-        });
+// 2. SHARE CODE (просто копирует в буфер)
+shareCodeBtn.addEventListener('click', async function() {
+    shareMenu.style.display = 'none';
+    
+    try {
+        await navigator.clipboard.writeText(htmlCode.value);
+        statusBar.textContent = "HTML code copied to clipboard";
+        statusBar.style.background = "#e8f5e9";
+        statusBar.style.color = "#2e7d32";
+    } catch (e) {
+        // Фолбэк для старых браузеров
+        const textArea = document.createElement('textarea');
+        textArea.value = htmlCode.value;
+        document.body.appendChild(textArea);
+        textArea.select();
+        document.execCommand('copy');
+        document.body.removeChild(textArea);
+        
+        statusBar.textContent = "Code copied!";
+        statusBar.style.background = "#e8f5e9";
+        statusBar.style.color = "#2e7d32";
+    }
+});
+
+// 3. SAVE AS HTML FILE (скачивает .html файл)
+saveFileBtn.addEventListener('click', function() {
+    shareMenu.style.display = 'none';
+    
+    const blob = new Blob([htmlCode.value], { type: 'text/html' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = 'my-html-page.html';
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+    
+    statusBar.textContent = "HTML file downloaded";
+    statusBar.style.background = "#e3f2fd";
+    statusBar.style.color = "#1567c0";
+});
 
         // =================== PWA CREATION ===================
         function createPWAFromHTML() {
